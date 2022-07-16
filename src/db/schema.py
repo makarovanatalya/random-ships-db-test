@@ -1,3 +1,5 @@
+from random import choice
+
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -18,6 +20,9 @@ class Ships(Model):
         self.hull = hull
         self.engine = engine
 
+    def change_attribute(self, attribute, value):
+        setattr(self, attribute, value)
+
 
 class Weapons(Model):
     __tablename__ = 'weapons'
@@ -37,6 +42,10 @@ class Weapons(Model):
         self.power_volley = power_volley
         self.count = count
 
+    def change_random_attribute(self, value):
+        rand_attribute = choice(['reload_speed', 'rotational_speed', 'diameter', 'power_volley', 'count'])
+        setattr(self, rand_attribute, value)
+
 
 class Hulls(Model):
     __tablename__ = 'hulls'
@@ -52,6 +61,10 @@ class Hulls(Model):
         self.type = type
         self.capacity = capacity
 
+    def change_random_attribute(self, value):
+        rand_attribute = choice(['armor', 'type', 'capacity'])
+        setattr(self, rand_attribute, value)
+
 
 class Engines(Model):
     __tablename__ = 'engines'
@@ -64,3 +77,7 @@ class Engines(Model):
         self.engine = engine
         self.power = power
         self.type = type
+
+    def change_random_attribute(self, value):
+        rand_attribute = choice(['power', 'type'])
+        setattr(self, rand_attribute, value)
