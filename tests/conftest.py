@@ -3,10 +3,10 @@ from random import choice, randint
 
 import pytest
 
+from config import MAIN_DB_PATH, TEST_DB_PATH
 from src.db.generator import get_db_connect
 from src.db.helpers import get_ships_names
 from src.db.schema import Engines, Hulls, Model, Ships, Weapons
-from tests.config import MAIN_DB_PATH, TEST_DB_PATH
 
 
 @pytest.fixture(scope='session')

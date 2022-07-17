@@ -1,14 +1,10 @@
-from pathlib import Path
 from random import choice
 
+from config import MAIN_DB_PATH
 from src.db.helpers import get_db_connect
 from src.db.schema import Engines, Hulls, Model, Ships, Weapons
 from src.models.builder import (EngineBuilder, HullBuilder, ShipBuilder,
                                 WeaponBuilder)
-
-# оставила путь к БД здесь
-# если бы требовалась как минимум локальная БД, стоило бы сделать отдельный конфиг + makefile для удобного запуска
-MAIN_DB_PATH = Path(Path.cwd().parent.parent, 'main.db')
 
 
 def db_filler(count_ships, count_weapons, count_hulls, count_engines):
